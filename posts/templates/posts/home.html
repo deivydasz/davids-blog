@@ -30,8 +30,8 @@
   	    
           <a class="navbar-brand" href="#">Project name</a>
         </div>
-        <div id="navbar" class="navbar-collapse collapse">
-          <ul class="mynav">
+        <div id="mynav" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
 	          <li><a>About</a></li>
 	          <li><a>Twitter</a></li>
 	          <li><a>FaceBook</a></li>
@@ -41,21 +41,20 @@
 	    </div>
 	  </nav>
 
+	  <div class="container">
 
+	    <h1 class="text-center">Welcome to David's Blog</h1>
+	    <h2>Latest Posts</h2>
+	    <hr>
+	    {% for post in posts.all %}
+	    	<a href="{% url 'post_detail' post.id %}"><h3>{{ post.title }}</h3></a>
+	    	<h4>  <span class="glyphicon glyphicon-time" aria-hidden="true"></span> {{ post.pub_date_pretty }}</h4>
+	    	<img src="{{ post.image.url }}" class="img-responsive center-block" style="max-height:200px"/>
+	    	<p>{{ post.summary }}</p>
 
-    <h1>Welcome to David's Blog</h1>
-
-    <h2>Latest Posts</h2>
-
-    {% for post in posts.all %}
-
-    	<a href="{% url 'post_detail' post.id %}"><h4>{{ post.title }}</h4></a>
-    	<p>{{ post.pub_date_pretty }}</p>
-    	<img src="{{ post.image.url }}"/>
-    	<p>{{ post.summary }}</p>
-
-    	<br/>
-    {% endfor %}
+	    	<br/>
+	    {% endfor %}
+    </div>
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
