@@ -54,7 +54,7 @@ ROOT_URLCONF = 'davidsblog.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['./templates/posts',],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
