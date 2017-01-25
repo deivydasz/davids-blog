@@ -1,1 +1,12 @@
-<h1>This is posts/home.html</h1>
+<h1>Welcome to David's Blog</h1>
+
+<h2>Latest Posts</h2>
+
+{% for post in posts.all %}
+
+	<h4>{{ post.title }}</h4>
+	<p>{{ post.pub_date_pretty }}</p>
+	<p>{{ post.summary }}</p>
+
+	<br/>
+{% endfor %}
